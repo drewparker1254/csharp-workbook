@@ -2,6 +2,7 @@ using System;
 
 public class Program
 {
+   public static bool hasPlayerWon = false;
     public static string playerTurn = "X";
     public static string[][] board = new string[][]
     {
@@ -21,7 +22,7 @@ public class Program
             i++;
             
                 
-        } while (i <= 9);
+        } while (i <= 9 && !hasPlayerWon);
 
         // do while loop 
         Console.ReadLine();
@@ -51,11 +52,7 @@ public class Program
     public static void PlaceMark(int row, int column)
     {
         // Your code here
-        if (playerTurn == "X")
-        {
-            
-
-        }
+        board[row][column] = playerTurn;
         
 
         return;
@@ -65,7 +62,7 @@ public class Program
     {
         
         
-        bool hasPlayerWon = HorizontalWin() || VerticalWin() || DiagonalWin();
+         hasPlayerWon = HorizontalWin() || VerticalWin() || DiagonalWin();
 
         if (hasPlayerWon)
         {
