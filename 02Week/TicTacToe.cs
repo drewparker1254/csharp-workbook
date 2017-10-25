@@ -2,7 +2,7 @@ using System;
 
 public class Program
 {
-   public static bool hasPlayerWon = false;
+   
     public static string playerTurn = "X";
     public static string[][] board = new string[][]
     {
@@ -22,7 +22,7 @@ public class Program
             i++;
             
                 
-        } while (i <= 9 && !hasPlayerWon);
+        } while (i <= 9 && !CheckForWin() && !CheckForTie());
 
         // do while loop 
         Console.ReadLine();
@@ -40,7 +40,7 @@ public class Program
         PlaceMark(row, column);
 
         
-        CheckForWin(); // returns a bool- need to do something with this value
+        CheckForWin(); 
 
       
         playerTurn = (playerTurn == "X") ? "O" : "X";
@@ -62,7 +62,7 @@ public class Program
     {
         
         
-         hasPlayerWon = HorizontalWin() || VerticalWin() || DiagonalWin();
+        bool hasPlayerWon = HorizontalWin() || VerticalWin() || DiagonalWin();
 
         if (hasPlayerWon)
         {
@@ -140,4 +140,19 @@ public class Program
         Console.WriteLine("2 " + String.Join("|", board[2]));
         return;
     }
+
+    public static bool CheckForTie()
+    {
+
+        bool havePlayersTied = false;
+
+        if(board[0][0] != " " && board[1][0] != " " && board[2][0] != " " && board[1][0] != " " && board[1][1] != " " && board[1][2] != " " && board[2][0] != " " && board[2][1] != " " && board[2][2] != " " )
+        {
+            havePlayersTied = true;
+            Console.WriteLine("It was a tie!");
+        }
+
+        return havePlayersTied;
+    }
+
 }
