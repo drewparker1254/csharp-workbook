@@ -33,13 +33,67 @@ public class Program
     
     public static bool CheckSolution(char[] guess)
     {
+
+        //bring together into single string
         // Your code here
+
+        // guess
+        string guessString = String.Join("", guess);
+        
+        //solution
+        string solutionString = String.Join(string.Empty, solution);
+
+        if (guessString == solutionString)
+        {
+
+        }
         return false;
     }
     
     public static string GenerateHint(char[] guess)
     {
         // Your code here
+        
+
+        //clone solution
+        char[]solutionClone = (char[]) solution.Clone();
+    
+
+        // Determine correct letter location
+        int correctLetterLocations = 0;
+
+        //iterate over solutionClone
+        for (var i = 0; i < solutionClone.Length; i++);
+        {
+            //comapare soulutionClone against guess
+            // for each index
+            if(solutionClone[i] == guess[i])
+            {
+                correctLetterLocations++;
+                solutionClone[i] = ' ';
+            }
+        }
+
+        int correctLetters = 0;
+
+        for (var i = 0; i < solutionClone.Length i++) ;
+        {
+            // check if any letter is inside solutionClone
+            char character = guess[i];
+            string clonedSolutionString = String.Join("", solutionClone);
+
+           int index = clonedSolutionString.IndexOf(character);
+            // what value index when there is no match
+            //what value index gets when there is a match 
+
+            //if you found the character 
+                //increase correctLetter 
+                // replace with ' ' the character from solutionClone -array
+
+            //return hint
+            //combo of the correctLetterLocation and correctLetter
+            //hyphenated - 
+        }
         return " ";
     }
     
@@ -53,7 +107,7 @@ public class Program
     {
         for (var i = 0; i < allowedAttempts; i++)
         {
-            board[i] = new string[codeSize + 1];
+            board[i] = new string[codeSize + 1]; // string [5]
             for (var j = 0; j < codeSize + 1; j++)
             {
                 board[i][j] = " ";
