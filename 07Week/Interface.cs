@@ -41,6 +41,7 @@ public interface IRenovactionContract
     int Estimate();
 }
 
+
 // Contractor A
 public class ContractorA : IRenovactionContract
 {
